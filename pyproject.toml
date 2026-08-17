@@ -1,7 +1,7 @@
 [project]
 name = "fastapi-restaurant"
 version = "0.1.0"
-description = "Add your description here"
+description = "REST API and admin backend for the restaurant management platform."
 readme = "README.md"
 requires-python = ">=3.14"
 dependencies = [
