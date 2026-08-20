@@ -5,8 +5,11 @@ description = "REST API and admin backend for the restaurant management platform
 readme = "README.md"
 requires-python = ">=3.14"
 dependencies = [
+    "asyncmy>=0.2.14",
+    "cryptography>=50.0.0",
     "fastapi>=0.141.1",
     "pydantic-settings>=2.15.0",
+    "sqlalchemy[asyncio]>=2.0.52",
     "structlog>=25.1.0",
     "uvicorn[standard]>=0.52.3",
 ]
