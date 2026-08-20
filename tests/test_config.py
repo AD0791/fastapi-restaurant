@@ -15,6 +15,7 @@ def test_missing_environment_raises(monkeypatch: pytest.MonkeyPatch) -> None:
 
 def test_settings_constructs_with_types(monkeypatch: pytest.MonkeyPatch) -> None:
     monkeypatch.setenv("ENVIRONMENT", "development")
+    monkeypatch.setenv("DATABASE_URL", "mysql+asyncmy://root:devroot@mysql:3306/fastapi_restaurant")
 
     settings = Settings(_env_file=None)
 
