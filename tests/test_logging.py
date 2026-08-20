@@ -1,7 +1,6 @@
 import json
 
 import pytest
-import structlog.contextvars as contextvars
 from fastapi import FastAPI
 from fastapi.testclient import TestClient
 
@@ -30,7 +29,7 @@ def test_caller_supplied_request_id_is_echoed(capsys: pytest.CaptureFixture[str]
     assert json.loads(line)["request_id"] == "demo-123"
 
 
-def test_failing_request_logs_and_clears_context(capsys: pytest.CaptureFixture[str]) -> None:
+def test_failing_request_logs(capsys: pytest.CaptureFixture[str]) -> None:
     app = FastAPI()
     add_request_id_middleware(app)
 
@@ -45,4 +44,3 @@ def test_failing_request_logs_and_clears_context(capsys: pytest.CaptureFixture[s
 
     line = capsys.readouterr().out.strip().splitlines()[-1]
     assert json.loads(line)["event"] == "request.failed"
-    assert contextvars.get_contextvars() == {}

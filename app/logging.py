@@ -2,9 +2,7 @@ import uuid
 from collections.abc import Awaitable, Callable
 
 import structlog
-from fastapi import FastAPI
-from starlette.requests import Request
-from starlette.responses import Response
+from fastapi import FastAPI, Request, Response
 
 from app.config import Settings
 
